@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  api: 
+    build: ./api
+    container_name: api_c
+    ports: 
+      - "4040:4000"
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+  
+  db:
+    image: "mysql"
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DB: practice
